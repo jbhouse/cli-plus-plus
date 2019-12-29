@@ -7,10 +7,14 @@
     "test": "test"
   },
   "bin": {
+    "g": "./build/google.js",
     "gb": "./build/gitListCurrentBranch.js",
-    "gco": "./build/gitCheckout.js",
+    "gc": "./build/gitCommit.js",
     "pr": "./build/openPR.js",
-    "gp": "./build/gitPull.js"
+    "gp": "./build/gitPull.js",
+    "gco": "./build/gitCheckout.js",
+    "gsa": "./build/git-apply-stash-by-name.js",
+    "gsp": "./build/git-stash-pop.js"
   },
   "repository": {
     "type": "git",
