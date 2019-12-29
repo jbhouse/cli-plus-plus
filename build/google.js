@@ -1,4 +1,6 @@
+#!/usr/bin/env node
 "use strict";
-module.exports = {
-    searchGoogle: (executablePath, url) => require('child_process').execFile(executablePath, [url], (err, data) => Boolean(err) ? console.error(err) : console.log(data))
-};
+
+(() => {
+    require('opn')("https://www.google.com/search?q=" + process.argv.slice(2).join("+"));
+})();
