@@ -7,15 +7,25 @@
     "test": "test"
   },
   "bin": {
-    "g": "./build/google.js",
-    "gb": "./build/gitListCurrentBranch.js",
-    "gc": "./build/gitCommit.js",
-    "pr": "./build/openPR.js",
-    "gp": "./build/gitPull.js",
-    "gco": "./build/gitCheckout.js",
-    "gsa": "./build/git-apply-stash-by-name.js",
-    "gsp": "./build/git-stash-pop.js",
-    "hub": "./build/goToGithub.js"
+    "g": "./build/google.js"
+    ,"gb": "./build/gitListCurrentBranch.js"
+    ,"gc": "./build/gitCommit.js"
+    ,"pr": "./build/openPR.js"
+    ,"gp": "./build/gitPull.js"
+    ,"gco": "./build/gitCheckout.js"
+    ,"gsa": "./build/git-apply-stash-by-name.js"
+    ,"gsp": "./build/git-stash-pop.js"
+    ,"hub": "./build/goToGithub.js"
+    ,"npi": "./build/npmInstall.js"
+    ,"gs": "./build/gitStatus.js"
+    ,"ga": "./build/gitAdd.js"
+    ,"gf": "./build/gitFetch.js"
+    ,"ex": "./build/explorer.js"
+    ,"mkd": "./build/makeDirectoryAndCdIntoIt.js"
+    ,"serve": "./build/angularServe.js"
+    ,"desktop": "./build/goToDesktop.js"
+    ,"downloads": "./build/goToDownloads.js"
+    ,"documents": "./build/goToDocuments.js"
   },
   "repository": {
     "type": "git",

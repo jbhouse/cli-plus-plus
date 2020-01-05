@@ -1,5 +1,5 @@
 # cli-plus-plus
-automate and improve your command line experience
+automate and improve your command line experience (On Windows 10)
 
 run 'npm i -g cli-plus-plus'
 
