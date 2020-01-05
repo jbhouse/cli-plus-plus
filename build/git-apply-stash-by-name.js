@@ -13,7 +13,7 @@ function applyStash(stashMessage) {
 function parseGitStashList(stashList, stashMessage, workingDirectory) {
   const listOfStashMessages = stashList.split('\n');
   const stashMessagesContainingInput = listOfStashMessages.filter((msg) => msg.includes(stashMessage));
-  if (stashMessagesContainingInput.length == 0) {
+  if (stashMessagesContainingInput.length === 0) {
     console.log('No stashes were found with the given message. Stash messages: ', stashList);
   } else if (stashMessagesContainingInput.length > 1) {
     console.log('More than one stash was found that contains the given input: ', stashMessagesContainingInput);

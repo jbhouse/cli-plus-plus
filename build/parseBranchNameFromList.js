@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 module.exports = {
   getCurrentBranch: async () => {
     const listOfBranches = await require('./gitListBranches').listBranches();
