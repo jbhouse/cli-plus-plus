@@ -49,7 +49,6 @@
   },
   "homepage": "https://github.com/jbhouse/cli-plus-plus#readme",
   "dependencies": {
-    "clipboardy": "^2.1.0",
     "opn": "^6.0.0"
   },
   "devDependencies": {
