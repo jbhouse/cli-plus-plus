@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 (() => {
-  require('child_process').exec(`rundll32 url.dll, FileProtocolHandler https://www.google.com/search?q=${process.argv.slice(2).join('+')}`, (err, stdout, stderr) => {
+  require('child_process').exec(`git clone ${process.argv.slice(2).join(' ')}`, { cwd: process.cwd() }, (err, stdout, stderr) => {
     if (err) {
       console.log('Error: ', err);
       return;

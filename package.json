@@ -1,6 +1,6 @@
 {
   "name": "cli-plus-plus",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "automate and improve your command line experience",
   "main": "index.js",
   "scripts": {
@@ -10,11 +10,26 @@
     "g": "./build/google.js",
     "gb": "./build/gitListCurrentBranch.js",
     "gc": "./build/gitCommit.js",
+    "gcb": "./build/gitCommitWithBranchName.js",
     "pr": "./build/openPR.js",
     "gp": "./build/gitPull.js",
+    "gs": "./build/gitStatus.js",
+    "ga": "./build/gitAdd.js",
+    "gf": "./build/gitFetch.js",
+    "pwdc": "./build/copyDirectoryToClipboard.js",
+    "npig": "./build/npmInstallGlobally.js",
+    "clone": "./build/gitClone.js",
     "gco": "./build/gitCheckout.js",
     "gsa": "./build/git-apply-stash-by-name.js",
-    "gsp": "./build/git-stash-pop.js"
+    "gsp": "./build/git-stash-pop.js",
+    "hub": "./build/goToGithub.js",
+    "npi": "./build/npmInstall.js",
+    "ex": "./build/explorer.js",
+    "serve": "./build/angularServe.js",
+    "mc": "./build/mavenClean.js",
+    "mio": "./build/mavenInstallOffline.js",
+    "mu": "./build/mavenUpdate.js",
+    "sbr": "./build/mavenSpringBootRun.js"
   },
   "repository": {
     "type": "git",
@@ -26,13 +41,17 @@
   "keywords": [
     "commandline"
   ],
+  "preferGlobal": true,
   "author": "Joe Moorhouse",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jbhouse/cli-plus-plus/issues"
   },
   "homepage": "https://github.com/jbhouse/cli-plus-plus#readme",
-  "dependencies": {
-    "opn": "^6.0.0"
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1"
   }
 }

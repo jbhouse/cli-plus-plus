@@ -1,7 +1,8 @@
-"use strict";
+#!/usr/bin/env node
+
 module.exports = {
-    getCurrentBranch: async () => {
-        let listOfBranches = await require('./gitListBranches').listBranches();
-        return listOfBranches.filter((branchName) => branchName.includes("*"))[0].replace("* ", "");
-    }
-}
+  getCurrentBranch: async () => {
+    const listOfBranches = await require('./gitListBranches').listBranches();
+    return listOfBranches.filter((branchName) => branchName.includes('*'))[0].replace('* ', '');
+  },
+};
