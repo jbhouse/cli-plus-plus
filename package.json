@@ -16,7 +16,6 @@
     "gs": "./build/gitStatus.js",
     "ga": "./build/gitAdd.js",
     "gf": "./build/gitFetch.js",
-    "pwdc": "./build/copyDirectoryToClipboard.js",
     "npig": "./build/npmInstallGlobally.js",
     "clone": "./build/gitClone.js",
     "gco": "./build/gitCheckout.js",
@@ -29,7 +28,11 @@
     "mc": "./build/mavenClean.js",
     "mio": "./build/mavenInstallOffline.js",
     "mu": "./build/mavenUpdate.js",
-    "sbr": "./build/mavenSpringBootRun.js"
+    "sbr": "./build/mavenSpringBootRun.js",
+    "pwd": "./build/printWorkingDirectory.js",
+    "cco": "./build/copyCommandOutput.js",
+    "ls": "./build/printDirectoryContent.js",
+    "home": "./build/echoUserProfile.js"
   },
   "repository": {
     "type": "git",
