@@ -6,7 +6,7 @@ function applyStash(stashMessage) {
       console.log('Error: ', err);
       return;
     }
-    stdout ? this.parseGitStashList(stdout, stashMessage, process.cwd()) : console.log(stderr);
+    stdout ? parseGitStashList(stdout, stashMessage, process.cwd()) : console.log(stderr);
   });
 }
 
