@@ -16,6 +16,7 @@
     "gs": "./build/gitStatus.js",
     "ga": "./build/gitAdd.js",
     "gf": "./build/gitFetch.js",
+    "gsl": "./build/gitStashList.js",
     "npig": "./build/npmInstallGlobally.js",
     "clone": "./build/gitClone.js",
     "gco": "./build/gitCheckout.js",
