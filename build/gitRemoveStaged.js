@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
+const childProcess = require('child_process');
+
 function removeStaged(fileName) {
-    require('child_process').exec('git diff --name-only --cached', { cwd: process.cwd() }, (err, stdout, stderr) => {
+    childProcess.exec('git diff --name-only --cached', { cwd: process.cwd() }, (err, stdout, stderr) => {
         if (err) {
             console.log('Error: ', err);
             return;
@@ -11,13 +13,15 @@ function removeStaged(fileName) {
 }
 
 const resetFile = (fileName, workingDirectory) => {
-    require('child_process').exec(`git reset HEAD -- ${fileName}`, { cwd: workingDirectory }, (err, stdout, stderr) => {
-        if (err) {
-            console.log('Error: ', err);
-            return;
-        }
-        stdout ? console.log(stdout) : console.log(stderr);
-    });
+    return new Promise(
+        () => childProcess.exec(`git reset HEAD -- ${fileName}`, { cwd: workingDirectory }, (err, stdout, stderr) => {
+            if (err) {
+                console.log('Error: ', err);
+                return;
+            }
+            stdout ? console.log(stdout) : console.log(stderr);
+        })
+    );
 }
 
 const promptUserToSelectFile = (filesMatchingGivenPattern, rl, workingDirectory) => {
@@ -37,7 +41,7 @@ async function parseStagedFiles(fileNames, fileName, workingDirectory) {
     if (fileName[0] == '*') {
         const filesMatchingGivenPattern = listOfFileNames.filter((msg) => msg.toLowerCase().includes(fileName.slice(1, fileName.length).toLowerCase()));
         for await (file of filesMatchingGivenPattern) {
-            resetFile(file, workingDirectory);
+            await resetFile(file, workingDirectory);
         };
     } else {
         const filesMatchingGivenPattern = listOfFileNames.filter((msg) => msg.toLowerCase().includes(fileName.toLowerCase()));
@@ -51,7 +55,7 @@ async function parseStagedFiles(fileNames, fileName, workingDirectory) {
             await promptUserToSelectFile(filesMatchingGivenPattern, rl, workingDirectory);
             rl.close();
         } else {
-            require('child_process').exec(`git reset HEAD -- ${filesMatchingGivenPattern[0]}`, { cwd: workingDirectory }, (err, stdout, stderr) => {
+            childProcess.exec(`git reset HEAD -- ${filesMatchingGivenPattern[0]}`, { cwd: workingDirectory }, (err, stdout, stderr) => {
                 if (err) {
                     console.log('Error: ', err);
                     return;
