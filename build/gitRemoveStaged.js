@@ -35,14 +35,14 @@ const promptUserToSelectFile = (filesMatchingGivenPattern, rl, workingDirectory)
 async function parseStagedFiles(fileNames, fileName, workingDirectory) {
     const listOfFileNames = fileNames.split('\n');
     if (fileName[0] == '*') {
-        const filesMatchingGivenPattern = listOfFileNames.filter((msg) => msg.includes(fileName.slice(1, fileName.length)));
-        filesMatchingGivenPattern.forEach(file => {
+        const filesMatchingGivenPattern = listOfFileNames.filter((msg) => msg.toLowerCase().includes(fileName.slice(1, fileName.length).toLowerCase()));
+        for await (file of filesMatchingGivenPattern) {
             resetFile(file, workingDirectory);
-        });
+        };
     } else {
-        const filesMatchingGivenPattern = listOfFileNames.filter((msg) => msg.includes(fileName));
+        const filesMatchingGivenPattern = listOfFileNames.filter((msg) => msg.toLowerCase().includes(fileName.toLowerCase()));
         if (filesMatchingGivenPattern.length === 0) {
-            console.log('No staged files were found that match the given pattern. Staged files: ', fileNames);
+            console.log('No staged files were found that match the given pattern. Staged files: \n', fileNames);
         } else if (filesMatchingGivenPattern.length > 1) {
             const rl = require('readline').createInterface({
                 input: process.stdin,
