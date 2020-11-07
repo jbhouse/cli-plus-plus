@@ -2,16 +2,6 @@
 
 const childProcess = require('child_process');
 
-function removeStaged(fileName) {
-    childProcess.exec('git diff --name-only --cached', { cwd: process.cwd() }, (err, stdout, stderr) => {
-        if (err) {
-            console.log('Error: ', err);
-            return;
-        }
-        stdout ? parseStagedFiles(stdout, fileName, process.cwd()) : console.log(stderr);
-    });
-}
-
 const resetFile = (fileName, workingDirectory) => {
     return new Promise(
         () => childProcess.exec(`git reset HEAD -- ${fileName}`, { cwd: workingDirectory }, (err, stdout, stderr) => {
@@ -36,8 +26,7 @@ const promptUserToSelectFile = (filesMatchingGivenPattern, rl, workingDirectory)
     });
 }
 
-async function parseStagedFiles(fileNames, fileName, workingDirectory) {
-    const listOfFileNames = fileNames.split('\n');
+async function parseStagedFiles(listOfFileNames, fileName, workingDirectory) {
     if (fileName[0] == '*') {
         const filesMatchingGivenPattern = listOfFileNames.filter((msg) => msg.toLowerCase().includes(fileName.slice(1, fileName.length).toLowerCase()));
         for await (file of filesMatchingGivenPattern) {
@@ -66,6 +55,9 @@ async function parseStagedFiles(fileNames, fileName, workingDirectory) {
     }
 }
 
-(() => {
-    removeStaged(process.argv.slice(2).join(' '));
+(async () => {
+    const fileList = await require('./utils').listStagedFiles();
+    if (null != fileList && undefined != fileList) {
+        parseStagedFiles(fileList, process.argv.slice(2).join(' '), process.cwd())
+    }
 })();
