@@ -10,6 +10,7 @@
     "g": "./build/google.js",
     "gb": "./build/gitListCurrentBranch.js",
     "gbc": "./build/gitCopyCurrentBranch.js",
+    "pwdc": "./build/copyCurrentDirectory.js",
     "gc": "./build/gitCommit.js",
     "gcd": "./build/gitCheckoutDevelop.js",
     "gu": "./build/gitUndoCommit.js",
