@@ -1,6 +1,6 @@
 {
   "name": "cli-plus-plus",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "automate and improve your command line experience",
   "main": "index.js",
   "scripts": {
