@@ -17,7 +17,7 @@ const promptUserToSelectStash = (stashMessagesContainingInput, rl, workingDirect
     var displayableStashMessages = stashMessagesContainingInput.map(str => str.split(": ")[2]).map(str => i++ + seperator + str).join("\n") + "\n";
     
     rl.question("\Multiple stashes match that pattern. Which stash would you like to apply? \n" + displayableStashMessages, (answer) => {
-      require('child_process').exec(`git stash apply ${answer}`, { cwd: workingDirectory }, (err, stdout, stderr) => {
+      require('child_process').exec(`git stash apply ${stashMessagesContainingInput[answer].split("stash@{")[1].split("}:")[0]}`, { cwd: workingDirectory }, (err, stdout, stderr) => {
         if (err) {
           console.log('Error: ', err);
           return;
