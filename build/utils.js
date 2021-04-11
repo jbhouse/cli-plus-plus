@@ -49,13 +49,6 @@ async function parseStagedFiles(listOfFileNames, fileName, workingDirectory, fun
             rl.close();
         } else {
             func(filesMatchingGivenPattern[0], workingDirectory);
-            // childProcess.exec(`git reset HEAD -- ${filesMatchingGivenPattern[0]}`, { cwd: workingDirectory }, (err, stdout, stderr) => {
-            //     if (err) {
-            //         console.log('Error: ', err);
-            //         return;
-            //     }
-            //     stdout ? console.log(stdout) : console.log(stderr);
-            // });
         }
     }
 }
